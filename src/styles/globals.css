@@ -17,25 +17,39 @@
 @layer base {
 
   :root {
-    --color-background: 0deg 0% 96%;
-    --color-border: 0deg 0% 76%;
-    --color-primary: 217deg 32.6% 17.5%;
-    --color-accent: 0deg 0% 92%;
 
-    /* ----------- input --------------- */
-    --color-input: 0deg 0% 92%;
-    --color-input-hover: 0deg 0% 88%;
-    --color-input-text: 0deg 0% 10%;
-    --color-input-icon: 0deg 0% 40%;
+    --background: 0deg 0% 96%;
+    --foreground: 217deg 32.6% 17.5%;
+    --border: 0deg 0% 76%;
 
-    /* ----------- button --------------- */
-    --color-btn: 0deg 0% 92%;
-    --color-btn-hover: 0deg 0% 88%;
-    --color-btn-text: 0deg 0% 10%;
-    --color-btn-icon: 0deg 0% 40%;
-    
-    /* ----------- radius --------------- */
+    --accent: 0deg 0% 91%;
+    --accent-foreground: 0deg 20% 72%;
+    --accent-hover: 0deg 0% 88%;
+
+    --muted: 0deg 0% 46%;
+    --muted-foreground: var(--muted);
+
+    --destructive: 0deg 100% 50%;
+    --destructive-foreground: 210deg 40% 98%;
+
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
+
+    --card: var(--background);
+    --card-foreground: var(--foreground);
+
+    --input: var(--border);
+
+    --primary: var(--accent);
+    --primary-foreground: var(--foreground);
+
+    --secondary: var(--accent);
+    --secondary-foreground: var(--foreground);
+
+    --ring: var(--border);
+
     --radius: 0.5rem;
+
   }
 
   @media (prefers-color-scheme: dark) {
