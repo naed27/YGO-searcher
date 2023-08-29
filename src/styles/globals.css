@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-moz-selection { 
+  color: white;
+  background: #f85a4d;
+}
+
+::selection {
+  color: white;
+  background: #f85a4d;
+}
+
+
+@layer base {
+
+  :root {
+    --color-background: 0deg 0% 96%;
+    --color-border: 0deg 0% 76%;
+    --color-primary: 217deg 32.6% 17.5%;
+    --color-accent: 0deg 0% 92%;
+
+    /* ----------- input --------------- */
+    --color-input: 0deg 0% 92%;
+    --color-input-hover: 0deg 0% 88%;
+    --color-input-text: 0deg 0% 10%;
+    --color-input-icon: 0deg 0% 40%;
+
+    /* ----------- button --------------- */
+    --color-btn: 0deg 0% 92%;
+    --color-btn-hover: 0deg 0% 88%;
+    --color-btn-text: 0deg 0% 10%;
+    --color-btn-icon: 0deg 0% 40%;
+    
+    /* ----------- radius --------------- */
+    --radius: 0.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+
+      --background: 220deg 40% 15%;
+      --foreground: 0deg 0% 96%; 
+      --border: 217deg 10% 45%;
+
+      --accent: 220deg 40% 10%;
+      --accent-foreground: 220deg 20% 30%;
+      --accent-hover: 220deg 10% 25%;
+
+      --muted: 0deg 0% 46%;
+      --muted-foreground: var(--muted);
+
+      --destructive: 0deg 100% 50%;
+      --destructive-foreground: 210deg 40% 98%;
+
+      --popover: var(--background);
+      --popover-foreground: var(--foreground);
+
+      --card: var(--background);
+      --card-foreground: var(--foreground);
+
+      --input: var(--border);
+
+      --primary: var(--accent);
+      --primary-foreground: var(--foreground);
+
+      --secondary: var(--accent);
+      --secondary-foreground: var(--foreground);
+
+      --ring: var(--border);
+
+      --radius: 0.5rem;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --color-background: 220deg 40% 15%;
+      --color-border: 217deg 10% 45%;
+
+      --color-primary: 0deg 0% 96%;
+      --color-muted-primary: 0deg 0% 46%;
+
+      --color-foreground: 0deg 0% 96%; 
+      --color-muted-foreground: 0deg 0% 46%;
+
+      --color-accent: 220deg 40% 10%;
+      --color-accent-hover: 220deg 10% 25%;
+
+      /* ----------- radius --------------- */
+      --radius: 0.5rem;
+  }
+}
+
+
+@layer utilities {
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+}
+
+
+@layer responsive {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+}
