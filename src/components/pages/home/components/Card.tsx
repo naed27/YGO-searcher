@@ -1,9 +1,8 @@
-import { YGOCard } from "@/lib/types";
-import { cn, parseLimit } from "@/lib/utils";
-import { useSearchStore } from "@/stores/use-search-store";
-import Link from "next/link";
-import { useEffect, useMemo, useRef } from "react";
 import CardImage from "./CardImage";
+import { YGOCard } from "@/lib/types";
+import { cn, parseLimit, pushUrl } from "@/lib/utils";
+import { useSearchStore } from "@/stores/use-search-store";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { TextOverFlowAutoSlider } from "./TextOverFlowAutoSlider";
 
 
@@ -16,26 +15,31 @@ interface Props {
 
 const Card = ({card, cardSize}:Props) => {
 
-  const { query } = useSearchStore()
   const descRef = useRef<HTMLDivElement>(null)
+  const { query, setSelectedCard, setSearchIndex, searchedCards } = useSearchStore()
 
   const limit = useMemo(()=>{
     if(card===null || card===undefined) return -1
     return parseLimit(query.cardGame,card.banlist_info)
   },[ card, query.cardGame ]);
 
+  const cardHref = card ? `/card/${card.id}` : '/'
+
+  const viewCard = useCallback(()=>{
+    if( card === null || card === undefined )return
+    pushUrl(cardHref)
+    setSelectedCard(card);
+    setSearchIndex(searchedCards.findIndex(c=>c.id===card.id))
+  },[card, setSelectedCard, setSearchIndex, searchedCards, cardHref])
+
   useEffect(()=>{
-
     const cleaner = TextOverFlowAutoSlider({wrapperRef: descRef})
-
     return cleaner
-    
   },[card?.id])
 
   return (
-    <Link
-      shallow={true}
-      href={card ? `/card/${card.id}` : '/'}
+    <button
+      onClickCapture={viewCard}
       className={cn(
         "relative flex flex-row items-center h-[60px] basis-[280px] flex-grow gap-2 hover:bg-accent-hover cursor-default",
         !card&&'pointer-events-none'
@@ -56,7 +60,7 @@ const Card = ({card, cardSize}:Props) => {
             ref={descRef}
             className="relative w-full h-full flex items-center overflow-hidden">
 
-              <p className={cn("w-full h-fit whitespace-nowrap")}>
+              <p className={"w-full h-fit whitespace-nowrap text-start"}>
                 {card.name}
               </p>
 
@@ -65,7 +69,7 @@ const Card = ({card, cardSize}:Props) => {
         </div>
       </>
       )}
-    </Link>
+    </button>
   );
 
 }

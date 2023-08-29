@@ -13,6 +13,14 @@ export interface Coordinates {
   y: number
 }
 
+export const pushUrl = (url: string) => {
+  window.history.pushState(null, "", url);
+}
+
+export const replaceUrl = (url: string) => {
+  window.history.replaceState(null, "", url);
+}
+
 export const smoothScrollTowardsElement = (elementId: string) => {
   const cachedElement = getFromElementCache(elementId)
   const element = cachedElement || document.getElementById(elementId) as HTMLElement

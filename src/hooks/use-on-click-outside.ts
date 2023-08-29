@@ -1,3 +1,4 @@
+import { delay } from '@/lib/utils'
 import { RefObject, useEffect } from 'react'
 
 type Event = MouseEvent | TouchEvent
@@ -13,7 +14,7 @@ export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
       if (!el || el.contains((event?.target as Node) || null)) {
         return
       }
-
+      await delay(100)
       handler(event) // Call the handler only if the click is outside of the element passed.
     }
 

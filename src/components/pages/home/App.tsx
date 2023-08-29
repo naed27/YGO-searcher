@@ -7,10 +7,11 @@ import PageController from "./components/PageController"
 import { useSearchStore } from "@/stores/use-search-store"
 import NoNetwork from "@/components/utils/NoNetwork/NoNetwork"
 import LoadingPage from "@/components/utils/LoadingPage/LoadingPage"
+import CardModal from "../card/CardModal"
 
 const App = () => {
 
-  const {isFetchingCards, noNetwork} =  useSearchStore()
+  const {isFetchingCards, noNetwork, selectedCard, setSelectedCard, searchIndex} =  useSearchStore()
 
   if(isFetchingCards){
     return <LoadingPage/>
@@ -27,6 +28,11 @@ const App = () => {
         <ResultsTable/>
         <PageController/>
         <Filters/>
+        <CardModal 
+        card={selectedCard}
+        searchIndex={searchIndex}
+        setSelectedCard={setSelectedCard}
+        />
       </div>
     </div>
   )
