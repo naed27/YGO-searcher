@@ -45,6 +45,7 @@ const SearchBox = () => {
         value={placeHolder}
         spellCheck="false"
         onChange={queryName}
+        autoComplete="off"
         className="w-full h-full bg-transparent outline-none"/>
 
         <div 
