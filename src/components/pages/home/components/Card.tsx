@@ -34,6 +34,7 @@ const Card = ({card, cardSize}:Props) => {
 
   return (
     <Link
+      shallow={true}
       href={card ? `/card/${card.id}` : '/'}
       className={cn(
         "relative flex flex-row items-center h-[60px] basis-[280px] flex-grow gap-2 hover:bg-accent-hover cursor-default",

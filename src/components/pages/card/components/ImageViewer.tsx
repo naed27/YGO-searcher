@@ -37,6 +37,7 @@ function ImageViewer({ cardName, cardImages, cardIndex, inModal = false }: Props
         <div className="absolute inset-0 flex justify-between items-center">
 
           <Link 
+          shallow={true}
           href={prevHref}
           replace={true}
           className={cn(
@@ -47,6 +48,7 @@ function ImageViewer({ cardName, cardImages, cardIndex, inModal = false }: Props
           </Link>
 
           <Link   
+          shallow={true}
           href={nextHref}
           replace={true}
           className={cn(
