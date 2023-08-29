@@ -12,7 +12,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
       <input
-        autoComplete="new-password"
         type={type||'text'}
         spellCheck="false" 
         className={cn(
