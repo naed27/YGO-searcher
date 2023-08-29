@@ -7,8 +7,8 @@ import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
  
 export const metadata = {
-  title: 'Dean Kudou',
-  description: 'I write these words in steel, for anything not set in metal cannot be trusted.',
+  title: 'Browse Yu-Gi-Oh! Cards',
+  description: 'Access stats and effects of every card in the game!',
 }
 
 const inter = Inter({weight:'400', subsets:['latin']})
