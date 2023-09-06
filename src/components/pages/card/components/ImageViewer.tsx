@@ -1,5 +1,4 @@
 import { useSearchStore } from "@/stores/use-search-store";
-import { memo } from "react";
 import ImagePreview from "./ImagePreview";
 import { CardImage } from "@/lib/types";
 import { cn, replaceUrl } from "@/lib/utils";
@@ -74,4 +73,4 @@ function ImageViewer({ cardName, cardImages, cardIndex, inModal = false }: Props
 }
 
 
-export default memo(ImageViewer)
+export default ImageViewer
