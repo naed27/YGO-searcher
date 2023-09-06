@@ -426,6 +426,7 @@ export const cacheApiData = async (endpoint: string) => {
   }
 
   const result = await axios.get(endpoint).catch(() => {
+    // eslint-disable-next-line no-console
     console.log('fetch failed');
   });
 
