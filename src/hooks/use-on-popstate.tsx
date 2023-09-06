@@ -11,7 +11,7 @@ const defaultCallback = () => {}
 
 const useOnPopState = ({callback = defaultCallback}: Props = {}) => {
 
-  const { setSelectedCard } = useSearchStore()
+  const { setSelectedCard, setShowFilters } = useSearchStore()
   
   useEffect(()=>{
     
@@ -21,6 +21,7 @@ const useOnPopState = ({callback = defaultCallback}: Props = {}) => {
 
       if(originHref === currentHref){
         setSelectedCard(null)
+        setShowFilters(false)
         callback()
       }
     }
@@ -31,7 +32,7 @@ const useOnPopState = ({callback = defaultCallback}: Props = {}) => {
       window.removeEventListener('popstate',handleBackPress)
     }
 
-  },[setSelectedCard, callback])
+  },[setSelectedCard, callback, setShowFilters])
 
 }
 

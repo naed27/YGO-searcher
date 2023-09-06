@@ -5,7 +5,10 @@ export default function AdvancedButtons ({search}:{search: Searcher}) {
   
   const { setShowFilters } = useSearchStore()
   const onClickReset = useCallback(()=>search(initialQuery),[search])
-  const onClickSearch = useCallback(()=>setShowFilters(false),[setShowFilters])
+  const onClickSearch = useCallback(()=>{
+    setShowFilters(false)
+    window.history.back()
+  },[setShowFilters])
 
   return (
     <div className="w-full flex flex-row h-8 mt-2 mb-2">

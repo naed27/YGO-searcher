@@ -1,5 +1,6 @@
 "use client"
 
+import { pushUrl } from "@/lib/utils"
 import { useSearchStore } from "@/stores/use-search-store"
 import { Filter, Search } from "lucide-react"
 import { ChangeEvent, useRef, useState } from "react"
@@ -49,7 +50,7 @@ const SearchBox = () => {
         className="w-full h-full bg-transparent outline-none"/>
 
         <div 
-        onClick={()=>setShowFilters(true)}
+        onClick={()=>{setShowFilters(true);pushUrl('/')}}
         className="flex justify-center items-center h-full px-2 border-l border-border gap-1 pr-3 hover:bg-accent-hover select-none cursor-default">
           <Filter className="h-[18px] w-[18px] text-input-icon" strokeWidth={'2px'}/>
           Filter

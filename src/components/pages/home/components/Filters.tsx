@@ -16,7 +16,10 @@ import { memo } from "react";
 function Filters (){
   
   const { setShowFilters, showFilters, search, queueQuery } = useSearchStore();
-  const onClickOutside = () => setShowFilters(false)
+  const onClickOutside = () => {
+    setShowFilters(false)
+    window.history.back()
+  }
 
   if(!showFilters){
     return null
